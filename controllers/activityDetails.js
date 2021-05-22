@@ -43,6 +43,10 @@ const activityDetailsGetRandom = async (req, res) => {
   });
 };
 
+/*curl -X POST \
+       -d "participants=1" \
+       -H "Content-Type: application/x-www-form-urlencoded" \
+       http://localhost:3000/api/actD*/
 const activityDetailsGetByParticipants = async (req, res) => {
   if (!req.body.participants){
     return res.status(404).json({"message": "No participants argument supplied"});
