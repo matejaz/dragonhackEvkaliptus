@@ -4,7 +4,7 @@ const Achievement = mongoose.model('Achievement');
 const Activity = mongoose.model('Activity');
 
 //get
-//curl -X GET\  -H "Content-Type: application/x-www-form-urlencoded"        http://localhost:8080/api/useri 
+//curl -X GET\  -H "Content-Type: application/x-www-form-urlencoded"        http://localhost:8080/api/user 
 const userGet = (req, res) => {
   User.find().exec((error, user) => {
     if(!user || user.length == 0){

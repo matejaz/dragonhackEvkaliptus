@@ -11,6 +11,7 @@
     "dotenv": "^10.0.0",
     "express": "~4.16.1",
     "http-errors": "^1.8.0",
+    "kamasutra-positions": "^1.0.1",
     "mongoose": "^5.12.10",
     "morgan": "~1.9.1"
   }

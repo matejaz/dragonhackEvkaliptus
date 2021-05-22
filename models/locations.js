@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const activityDetailsSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
-  title: {type: String, required: true},
+  score_value: {type: Number, required: true}
 });
 
 const activitySchema = new mongoose.Schema({
@@ -16,7 +16,7 @@ const activitySchema = new mongoose.Schema({
 const achievementSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
-  score_value: {type: Number, required: true},
+  score_value: {type: Number, required: true}
 });
 
 const userSchema = new mongoose.Schema({
@@ -30,5 +30,6 @@ const userSchema = new mongoose.Schema({
 
 
 mongoose.model("Activity", activitySchema, "Activities");
+mongoose.model("ActivityDetails", activityDetailsSchema, "ActivityDetails");
 mongoose.model("Achievement", achievementSchema, "Achievements");
 mongoose.model("User", userSchema, "Users");
