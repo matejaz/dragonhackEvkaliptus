@@ -26,7 +26,7 @@ function createUser(sex) {
 }
 
 function getUserById(id) {
-    console.log("Fetching user by id . . .")
+    console.log("Fetching user by id: ", id)
     try {
         const response = Axios.get(Endpoints.getUserById + id, {
             id: id,

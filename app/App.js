@@ -6,7 +6,8 @@ import * as Font from 'expo-font';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { getUsers, createUser, updateUserById } from "./src/api/ApiHandler.js"
+import { getUserById } from "./src/api/ApiHandler.js"
+import User from "./utils/User.js"
 
 import SexPick from "./src/views/solo/SexPick.js";
 import HomeSolo from "./src/views/solo/HomeSolo.js";
@@ -24,6 +25,7 @@ import line from "./assets/media/line.png"
 export default function App() {
   const Stack = createStackNavigator();
   const [appIsReady, setAppIsReady] = useState(false);
+  const [userId, setUserId] = useState("");
 
   //Splash
   useEffect(() => {
@@ -32,7 +34,11 @@ export default function App() {
         await SplashScreen.preventAutoHideAsync();
         await Font.loadAsync(Entypo.font);
 
-        // await updateUser();
+        const id = await User.getId();
+        setUserId(id)
+        if (userId !== "") {
+          fetchUserData()
+        }
       } catch (e) {
         console.warn(e);
       } finally {
@@ -44,41 +50,30 @@ export default function App() {
     prepare();
   }, []);
 
-  // function newUser() {
-  //   const newUser = createUser("female");
-  //   newUser.then((resp) => {
-  //     if (resp.status === 201) {
-  //       console.log(resp.data)
-  //     }
-  //     else {
-  //       console.log("Creating new user failed", resp.status, resp.data)
-  //     }
-  //   })
-  // }
+  function fetchUserData() {
 
-  // function fetchUsers() {
-  //   const allUsers = getUsers();
-  //   allUsers.then((resp) => {
-  //     if (resp.status === 200) {
-  //       console.log(resp.data)
-  //     }
-  //     else {
-  //       console.log("Fetching user failed", resp.status, resp.data)
-  //     }
-  //   })
-  // }
+    const userInfoResponse = getUserById(userId);
+    userInfoResponse.then((resp) => {
+      if (resp.status === 200) {
+        console.log("User data received", resp.data);
+        User.setUserInfo(resp.data);
+      }
+      else {
+        console.log("Fetching user failed", resp.status, resp.data)
+      }
+    })
 
-  // function updateUser() {
-  //   const updatedUser = updateUserById("60a923581f21680015cd8e06", "Maša in Medved");
-  //   updatedUser.then((resp) => {
-  //     if (resp.status === 200) {
-  //       console.log(resp.data)
-  //     }
-  //     else {
-  //       console.log("Updating user failed", resp.status, resp.data)
-  //     }
-  //   })
-  // }
+  }
+
+  function soloButtonPressed(navigation) {
+    if (User.getId() === "") {
+      navigation.navigate('SexPick')
+
+    }
+    else {
+      navigation.navigate('HomeSolo')
+    }
+  }
 
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
@@ -100,7 +95,7 @@ export default function App() {
         <Button title="Achievements" onPress={() => navigation.navigate('Achievements')} />
         <View style={styles.selectionView}>
 
-          <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => navigation.navigate('Solo')}>
+          <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => soloButtonPressed(navigation)}>
             <View >
               <Image source={soloLine} title="Solo" />
             </View>
@@ -114,7 +109,7 @@ export default function App() {
 
           <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => navigation.navigate('HomeCouple')}>
             <View >
-              <Image source={coupleLine} title="HomeCouple" />
+              <Image source={coupleLine} title="Couple" />
             </View>
           </TouchableOpacity>
 
@@ -126,12 +121,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="HomeActivity" screenOptions={{ headerShown: false }} independent={true}>
+        {/* General */}
         <Stack.Screen name="LandingPage" component={landingPage} />
         <Stack.Screen name="Achievements" component={Achievements} />
-        <Stack.Screen name="Solo" component={SexPick} />
         <Stack.Screen name="Action" component={Action} />
-        <Stack.Screen name="HomeCouple" component={HomeCouple} />
         <Stack.Screen name="EndAction" component={EndAction} />
+
+        {/* Solo */}
+        <Stack.Screen name="SexPick" component={SexPick} />
+        <Stack.Screen name="HomeSolo" component={HomeSolo} />
+
+        {/* Couple */}
+        <Stack.Screen name="HomeCouple" component={HomeCouple} />
+
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );
