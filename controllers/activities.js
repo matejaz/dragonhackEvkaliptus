@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = mongoose.model('User');
 const Activity = mongoose.model('Activity');
 const ActivityDetails = mongoose.model('ActivityDetails');
 
@@ -30,12 +31,18 @@ const activityAdd = async (req, res) => {
     start: req.body.start,
     stop: req.body.stop,
     activity: await ActivityDetails.findById(req.body.activityId),
-    }, (error, activity) => {
+    }, async (error, activity) => {
     if (error) {
       res.status(400).json(error);
     }
     else {
-      res.status(201).json(activity);
+      try {
+        let user = await User.findOneAndUpdate({_id: req.body.userId}, {$push: {activities: activity}}, {new: true});
+        res.status(201).json(user);
+      }
+      catch(error) {
+        res.status(400).json(error);
+      }
     }
   });
 };
