@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Button } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
@@ -9,11 +9,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { getUsers, createUser, updateUserById } from "./src/api/ApiHandler.js"
 
 import SexPick from "./src/views/solo/SexPick.js";
+import HomeSolo from "./src/views/solo/HomeSolo.js";
 import HomeCouple from "./src/views/couple/HomeCouple.js";
 import Action from "./src/views/couple/Action";
 
 import styles from "./assets/style/theme.scss"
 import Achievements from './src/views/Achievements.js';
+import buttonStyles from "./assets/style/buttons.scss"
+import soloLine from "./assets/media/soloLine.png"
+import coupleLine from "./assets/media/coupleLine.png"
+import line from "./assets/media/line.png"
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -91,17 +96,36 @@ export default function App() {
         style={styles.background}
         onLayout={onLayoutRootView}>
         <Text style={styles.text}>Choose your mode</Text>
-        <Button title="SOLO" onPress={() => navigation.navigate('Solo')} />
-        <Button title="DUO" onPress={() => navigation.navigate('Couple')} />
         <Button title="Achievements" onPress={() => navigation.navigate('Achievements')} />
         <Button title="Action" onPress={() => navigation.navigate('Action')} />
+        <View style={styles.selectionView}>
+
+          <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => navigation.navigate('Solo')}>
+            <View >
+              <Image source={soloLine} title="Solo" />
+            </View>
+          </TouchableOpacity>
+
+
+          <View style={styles.separatorLine}>
+            <Image source={line} title />
+          </View>
+
+
+          <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => navigation.navigate('HomeCouple')}>
+            <View >
+              <Image source={coupleLine} title="HomeCouple" />
+            </View>
+          </TouchableOpacity>
+
+        </View>
       </View>
     );
   };
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeActivity" screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName="HomeActivity" screenOptions={{ headerShown: false }} independent={true}>
         <Stack.Screen name="LandingPage" component={landingPage} />
         <Stack.Screen name="Achievements" component={Achievements} />
         <Stack.Screen name="Solo" component={SexPick} />
