@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const test = require('../controllers/test');
+
+//Initial database fill
+router.route('/fill')
+  .get(test.testFill);
 
 module.exports = router;
