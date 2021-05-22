@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const kamasutraPositions=require('kamasutra-positions');
 const ActivityDetails = mongoose.model('ActivityDetails');
 
 //get
@@ -29,7 +30,21 @@ const activityDetailsGetById = (req, res) => {
   });
 };
 
+const activityDetailsGetRandom = async (req, res) => {
+  let randomPosition=await kamasutraPositions.random();
+  ActivityDetails.find({"title": randomPosition}).exec((error, activityDetails) => {
+    if(!activityDetails || activityDetails.length == 0){
+      return res.status(404).json({"message": "OOPSIE WOOPSIE!! Uwu we made a fucky wucky..."});
+    }
+    else if(error){
+      return res.status(500).json(error);
+    }
+    res.status(200).json(activityDetails);
+  });
+};
+
 module.exports = {
     activityDetailsGet,
     activityDetailsGetById,
+    activityDetailsGetRandom
 };

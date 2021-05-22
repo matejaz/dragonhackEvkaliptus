@@ -20,6 +20,8 @@ router.route('/actD')
   .get(ctrlActivityDetails.activityDetailsGet);
 router.route('/actD/:id')
   .get(ctrlActivityDetails.activityDetailsGetById);
+router.route('/actDR')
+  .get(ctrlActivityDetails.activityDetailsGetRandom);
 
 //Activities
 router.route('/activities')

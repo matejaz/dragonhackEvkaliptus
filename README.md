@@ -17,6 +17,7 @@ User api endpoint:
 ActivityDetails api endpoint:
 - actD (GET) (get the list of all activities)
 - actD/id (GET) (get activities details by id)
+- actDR (GET) (get a random ActivityDetails)
 
 Activities api endpoint:
 - activities (GET) (get the list of all activities)

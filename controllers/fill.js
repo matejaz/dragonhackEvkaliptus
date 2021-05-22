@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const kamasutraPositions = require('kamasutra-positions');
 const User = mongoose.model('User');
 const ActivityDetails = mongoose.model('ActivityDetails');
 const Achievement = mongoose.model('Achievement');
