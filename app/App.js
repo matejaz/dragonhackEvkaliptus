@@ -98,7 +98,6 @@ export default function App() {
         onLayout={onLayoutRootView}>
         <Text style={styles.text}>Choose your mode</Text>
         <Button title="Achievements" onPress={() => navigation.navigate('Achievements')} />
-        <Button title="Action" onPress={() => navigation.navigate('Action')} />
         <View style={styles.selectionView}>
 
           <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => navigation.navigate('Solo')}>
@@ -131,7 +130,7 @@ export default function App() {
         <Stack.Screen name="Achievements" component={Achievements} />
         <Stack.Screen name="Solo" component={SexPick} />
         <Stack.Screen name="Action" component={Action} />
-        <Stack.Screen name="Couple" component={HomeCouple} />
+        <Stack.Screen name="HomeCouple" component={HomeCouple} />
         <Stack.Screen name="EndAction" component={EndAction} />
       </Stack.Navigator>
     </NavigationContainer>

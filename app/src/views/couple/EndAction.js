@@ -10,7 +10,7 @@ export default function EndAction() {
 
     return (
 
-        <View >
+        <View style={styles.background}>
             <Text>Ended</Text>
         </View>
     )

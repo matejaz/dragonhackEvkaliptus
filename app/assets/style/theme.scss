@@ -14,15 +14,8 @@
 .fullscreen {
 	flex: 1;
 	color: $defaultText;
-	font-size: 19;
-	margin-bottom: 2rem;
-}
-
-.background {
-	flex: 1;
-	align-items: center;
-	justify-content: center;
 	background-color: $backgroundColor;
+	font-size: 19;
 }
 
 .selectionView {

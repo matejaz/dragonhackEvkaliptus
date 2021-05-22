@@ -9,8 +9,8 @@ export default function Achievements() {
     return (
         <View style={styles.background}>
             <Text>Achievements</Text>
-            {achievements.map(value => (
-                <Achievement style={styles.text} name={value} />
+            {achievements.map((value, index) => (
+                <Achievement key={index} style={styles.text} name={value} />
             ))}
         </View>
     )

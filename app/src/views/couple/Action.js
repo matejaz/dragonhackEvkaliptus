@@ -39,12 +39,13 @@ export default function Action() {
         directionalOffsetThreshold: 80
     };
     return (
-        <GestureRecognizer onSwipeLeft={(state) => onSwipeLeft()} config={config} style={styles.fullscreen} onTouchEnd={(state) => { receiveRandomPose(state) }}>
+        <GestureRecognizer onSwipeLeft={(state) => onSwipeLeft()} config={config} style={styles.background} onTouchEnd={(state) => { receiveRandomPose(state) }}>
 
-            <View >
+            <View>
                 <Text>{position[0].title}</Text>
                 <Text>{swipe}</Text>
                 <Text>Tap to change position, swipe left to finish.</Text>
+                <Text>Ne vem</Text>
             </View>
         </GestureRecognizer>
     )
