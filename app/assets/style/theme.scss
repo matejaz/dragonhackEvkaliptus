@@ -1,12 +1,16 @@
 @import "colors.scss";
 
-.text{
-    color: $defaultText;
+.text {
+	color: $defaultText;
 }
 
-.background{
-    flex: 1;
-    align-items: center;
-    justify-content: center; 
-    background-color: $backgroundColor
+.background {
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	background-color: $backgroundColor;
+}
+
+.fullscreen {
+	flex: 1;
 }

@@ -10,8 +10,10 @@ import { getUsers, createUser, updateUserById } from "./src/api/ApiHandler.js"
 
 import SexPick from "./src/views/solo/SexPick.js";
 import HomeCouple from "./src/views/couple/HomeCouple.js";
+import Action from "./src/views/couple/Action";
 
 import styles from "./assets/style/theme.scss"
+import Achievements from './src/views/Achievements.js';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -91,6 +93,8 @@ export default function App() {
         <Text style={styles.text}>Choose your mode</Text>
         <Button title="SOLO" onPress={() => navigation.navigate('Solo')} />
         <Button title="DUO" onPress={() => navigation.navigate('Couple')} />
+        <Button title="Achievements" onPress={() => navigation.navigate('Achievements')} />
+        <Button title="Action" onPress={() => navigation.navigate('Action')} />
       </View>
     );
   };
@@ -99,7 +103,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="HomeActivity" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="LandingPage" component={landingPage} />
+        <Stack.Screen name="Achievements" component={Achievements} />
         <Stack.Screen name="Solo" component={SexPick} />
+        <Stack.Screen name="Action" component={Action} />
         <Stack.Screen name="Couple" component={HomeCouple} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -51,9 +51,20 @@ function updateUserById(id, name) {
     }
 }
 
+function getRandomPose() {
+    try {
+        const response = Axios.get(Endpoints.getRandomPose);
+        return response;
+    } catch (err) {
+        console.log('An error occurred:', err);
+        return this.createError(err);
+    }
+}
+
 export {
     getUsers,
     createUser,
     getUserById,
-    updateUserById
+    updateUserById,
+    getRandomPose
 }
