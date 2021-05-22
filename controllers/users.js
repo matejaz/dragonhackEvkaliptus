@@ -106,7 +106,8 @@ const userAddAchievement = async (req, res) => {
     }
     try{
       let achievement=await Achievement.findById(req.body.achievementId);
-      user = await User.findOneAndUpdate({_id: user._id}, {$push: {achievements: achievement}}, {new: true});
+      let newScore=user.score+achievement.score_value;
+      user = await User.findOneAndUpdate({_id: user._id}, {score: newScore, $push: {achievements: achievement}}, {new: true});
       res.status(200).json(user);
     }
     catch (error){

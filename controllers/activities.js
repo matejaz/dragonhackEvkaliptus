@@ -19,7 +19,7 @@ const activityGet = (req, res) => {
 
 //create
 /*curl -X POST \
-       -d "users=2&start=2021-05-22&stop=2021-05-23&activityId=60a92530b34980414b5663db&userId=60a9065d7a0f160015ee9178" \
+       -d "users=2&start=2021-05-22&stop=2021-05-23&activityId=60a9577a3de4a5e0a5fd9c26&userId=60a9065d7a0f160015ee9178" \
        -H "Content-Type: application/x-www-form-urlencoded" \
        http://localhost:3000/api/activities*/
 const activityAdd = async (req, res) => {
@@ -37,7 +37,9 @@ const activityAdd = async (req, res) => {
     }
     else {
       try {
-        let user = await User.findOneAndUpdate({_id: req.body.userId}, {$push: {activities: activity}}, {new: true});
+        let user = await User.findOne({_id: req.body.userId});
+        let newScore=user.score+activity.activity.score_value;
+        user = await User.findOneAndUpdate({_id: req.body.userId}, {score: newScore, $push: {activities: activity}}, {new: true});
         res.status(201).json(user);
       }
       catch(error) {
