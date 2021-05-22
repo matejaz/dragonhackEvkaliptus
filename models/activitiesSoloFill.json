@@ -1,0 +1,17 @@
+[{
+    "title": "Solo activity",
+    "description": "Cry. You're alone",
+    "score_value": 20,
+    "participants": 1,
+    "picture": "smth",
+    "steps": [{
+        "place": "Sewers",
+        "title": "Oh no, stinky!",
+        "description": "Roll all over in it. You know you like it"
+        },
+        {
+        "place": "Clean room",
+        "title": "Mr Clean!",
+        "description": "Just rub it"
+    }]
+}]

@@ -3,7 +3,14 @@ const mongoose = require('mongoose');
 const activityDetailsSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
-  score_value: {type: Number, required: true}
+  score_value: {type: Number, required: true},
+  participants: {type: Number, required: true},
+  picture: {type: String},
+  steps: [{
+    place: {type: String, required: true},
+    title: {type: String, required: true},
+    description: {type: String, required: true}
+  }]
 });
 
 const activitySchema = new mongoose.Schema({

@@ -43,8 +43,24 @@ const activityDetailsGetRandom = async (req, res) => {
   });
 };
 
+const activityDetailsGetByParticipants = async (req, res) => {
+  if (!req.body.participants){
+    return res.status(404).json({"message": "No participants argument supplied"});
+  }
+  ActivityDetails.find({"participants": req.body.participants}).exec((error, activityDetails) => {
+    if(!activityDetails || activityDetails.length == 0){
+      return res.status(404).json({"message": "OOPSIE WOOPSIE!! Uwu we made a fucky wucky..."});
+    }
+    else if(error){
+      return res.status(500).json(error);
+    }
+    res.status(200).json(activityDetails);
+  });
+};
+
 module.exports = {
     activityDetailsGet,
     activityDetailsGetById,
-    activityDetailsGetRandom
+    activityDetailsGetRandom,
+    activityDetailsGetByParticipants
 };

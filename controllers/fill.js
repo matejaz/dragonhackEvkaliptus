@@ -5,6 +5,7 @@ const Achievement = mongoose.model('Achievement');
 
 const userJSON = require('../models/testUserFill.json');
 const activitiesJSON = require('../models/activitiesFill.json');
+const activitiesSoloJSON = require('../models/activitiesSoloFill.json');
 const achievementsJSON = require('../models/achievementsFill.json');
 
 const testFill = (req, res) => {
@@ -31,6 +32,18 @@ const activitiesFill = (req, res) => {
         });
 }
 
+const activitiesSoloFill = (req, res) => {
+    ActivityDetails
+        .insertMany(activitiesSoloJSON, function(error){
+            if (error){
+                return res.status(500).json(error);
+            }
+            else {
+                return res.status(201).json('Fill done');
+            }
+        });
+}
+
 const achievementsFill = (req, res) => {
     Achievement
         .insertMany(achievementsJSON, function(error){
@@ -46,5 +59,6 @@ const achievementsFill = (req, res) => {
 module.exports = {
     testFill,
     activitiesFill,
+    activitiesSoloFill,
     achievementsFill
 };

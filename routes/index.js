@@ -19,6 +19,8 @@ router.route('/user/:id')
 //Activity details endpoints
 router.route('/actD')
   .get(ctrlActivityDetails.activityDetailsGet);
+router.route('/actD')
+  .post(ctrlActivityDetails.activityDetailsGetByParticipants);
 router.route('/actD/:id')
   .get(ctrlActivityDetails.activityDetailsGetById);
 router.route('/actDR')
@@ -42,6 +44,8 @@ router.route('/fill/testuser')
   .get(test.testFill);
 router.route('/fill/activities')
   .get(test.activitiesFill);
+router.route('/fill/activitiesSolo')
+  .get(test.activitiesSoloFill);
 router.route('/fill/achievements')
   .get(test.achievementsFill);
 
