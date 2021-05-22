@@ -20,8 +20,8 @@ const achievementSchema = new mongoose.Schema({
 });
 
 const userSchema = new mongoose.Schema({
-  name: {type: String, required: true},
-  score: {type: Number, "delault": 0, required: true},
+  name: {type: String, "default": "user", required: true},
+  score: {type: Number, "default": 0, required: true},
   sex: {type: String},
   activities: [activitySchema],
   achievements: [achievementSchema]
