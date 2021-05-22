@@ -39,7 +39,7 @@ const userRegister = (req, res) => {
 };
 
 //get by id
-//curl -X GET\  -H "Content-Type: application/x-www-form-urlencoded"        http://localhost:8080/api/useri/5deba763da917023625a71e0
+//curl -X GET\  -H "Content-Type: application/x-www-form-urlencoded"        http://localhost:8080/api/user/60a9065d7a0f160015ee9178
 const userGetById = (req, res) => {
   User.findById(req.params.id).exec((error, user) => {
     if(!user){
@@ -91,10 +91,35 @@ const userPutById = (req, res) => {
     });
 };
 
+//add an achievement
+/*curl -X POST \
+       -d "achievementId=60a9577f3de4a5e0a5fd9c81" \
+       -H "Content-Type: application/x-www-form-urlencoded" \
+       http://localhost:3000/api/user/60a9065d7a0f160015ee9178*/
+const userAddAchievement = async (req, res) => {
+  User.findById(req.params.id).exec(async (error, user) => {
+    if(!user || !req.body.achievementId){
+      return res.status(404).json({"message": "No user with id"});
+    }
+    else if(error){
+      return res.status(500).json(error);
+    }
+    try{
+      let achievement=await Achievement.findById(req.body.achievementId);
+      user = await User.findOneAndUpdate({_id: user._id}, {$push: {achievements: achievement}}, {new: true});
+      res.status(200).json(user);
+    }
+    catch (error){
+      return res.status(404).json({"message": "No achievement with achievementId"});
+    }
+  });
+};
+
 
 module.exports = {
     userGet,
     userRegister,
     userGetById,
-    userPutById
+    userPutById,
+    userAddAchievement
 };

@@ -13,7 +13,8 @@ router.route('/users')
   .post(ctrlUser.userRegister);
 router.route('/user/:id')
   .get(ctrlUser.userGetById)
-  .put(ctrlUser.userPutById);
+  .put(ctrlUser.userPutById)
+  .post(ctrlUser.userAddAchievement);
 
 //Activity details endpoints
 router.route('/actD')
