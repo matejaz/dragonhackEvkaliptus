@@ -12,6 +12,7 @@ import SexPick from "./src/views/solo/SexPick.js";
 import HomeSolo from "./src/views/solo/HomeSolo.js";
 import HomeCouple from "./src/views/couple/HomeCouple.js";
 import Action from "./src/views/couple/Action";
+import EndAction from "./src/views/couple/EndAction";
 
 import styles from "./assets/style/theme.scss"
 import Achievements from './src/views/Achievements.js';
@@ -131,6 +132,7 @@ export default function App() {
         <Stack.Screen name="Solo" component={SexPick} />
         <Stack.Screen name="Action" component={Action} />
         <Stack.Screen name="Couple" component={HomeCouple} />
+        <Stack.Screen name="EndAction" component={EndAction} />
       </Stack.Navigator>
     </NavigationContainer>
   );

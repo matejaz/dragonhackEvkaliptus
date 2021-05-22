@@ -3,9 +3,12 @@ import { Text, View } from 'react-native';
 import styles from "../../../assets/style/theme.scss"
 import { getRandomPose } from "../../api/ApiHandler"
 import GestureRecognizer, { swipeDirections } from 'react-native-swipe-gestures';
+import { useNavigation, useRoute, useFocusEffect, useNavigationState } from '@react-navigation/native';
 
 
 export default function Action() {
+    const navigation = useNavigation();
+
     const [position, setPosition] = useState([{ title: "" }])
     const [swipe, setSwipe] = useState("No swipe")
     useEffect(() => {
@@ -26,8 +29,9 @@ export default function Action() {
         });
     }
 
-    const onSwipeRight = (state) => {
-        setSwipe("U swiped right");
+    const onSwipeLeft = (state) => {
+        setSwipe("U swiped left");
+        navigation.navigate("EndAction");
     }
 
     const config = {
@@ -35,11 +39,12 @@ export default function Action() {
         directionalOffsetThreshold: 80
     };
     return (
-        <GestureRecognizer onSwipeRight={(state) => onSwipeRight()} config={config} style={styles.fullscreen} onTouchEnd={(state) => { receiveRandomPose(state) }}>
+        <GestureRecognizer onSwipeLeft={(state) => onSwipeLeft()} config={config} style={styles.fullscreen} onTouchEnd={(state) => { receiveRandomPose(state) }}>
+
             <View >
                 <Text>{position[0].title}</Text>
                 <Text>{swipe}</Text>
-                <Text>Tap to change position, slide right to skip, slide down to finish.</Text>
+                <Text>Tap to change position, swipe left to finish.</Text>
             </View>
         </GestureRecognizer>
     )
