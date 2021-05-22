@@ -10,6 +10,7 @@ import { getUsers, createUser, updateUserById } from "./src/api/ApiHandler.js"
 
 import SexPick from "./src/views/solo/SexPick.js";
 import HomeCouple from "./src/views/couple/HomeCouple.js";
+import HomeSolo from './src/views/solo/HomeSolo';
 
 import styles from "./assets/style/theme.scss"
 
