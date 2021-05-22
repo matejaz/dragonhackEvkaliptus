@@ -1,9 +1,10 @@
 import React from 'react'
+import {Text, View} from 'react-native';
 
-export default function homeSolo() {
+export default function HomeSolo() {
     return (
-        <div>
-            
-        </div>
+        <View>
+            <Text>Seeeerbus</Text>
+        </View>
     )
 }
