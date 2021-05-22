@@ -5,6 +5,7 @@ const test = require('../controllers/fill');
 const ctrlUser = require('../controllers/users');
 const ctrlActivityDetails = require('../controllers/activityDetails');
 const ctrlActivities = require('../controllers/activities');
+const ctrlAchievements = require('../controllers/achievemnts');
 
 //User endpoints
 router.route('/users')
@@ -27,10 +28,18 @@ router.route('/activities')
 router.route('/activity/:id')
   .get(ctrlActivities.activityGetById);
 
+//Achievements details endpoints
+router.route('/achievements')
+  .get(ctrlAchievements.achievementsGet);
+router.route('/achievement/:id')
+  .get(ctrlAchievements.achievementsGetById);
+
 //Initial database fill
 router.route('/fill/testuser')
   .get(test.testFill);
 router.route('/fill/activities')
   .get(test.activitiesFill);
+router.route('/fill/achievements')
+  .get(test.achievementsFill);
 
 module.exports = router;
