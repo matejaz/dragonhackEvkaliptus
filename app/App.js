@@ -6,6 +6,7 @@ import * as Font from 'expo-font';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { getUsers, createUser, updateUserById } from "./src/api/ApiHandler.js"
 
 import SexPick from "./src/views/solo/SexPick.js";
 import HomeCouple from "./src/views/couple/HomeCouple.js";
@@ -16,16 +17,14 @@ export default function App() {
   const Stack = createStackNavigator();
   const [appIsReady, setAppIsReady] = useState(false);
 
+  //Splash
   useEffect(() => {
     async function prepare() {
       try {
-        // Keep the splash screen visible while we fetch resources
         await SplashScreen.preventAutoHideAsync();
-        // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync(Entypo.font);
-        // Artificially delay for two seconds to simulate a slow loading
-        // experience. Please remove this if you copy and paste the code!
-        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // await updateUser();
       } catch (e) {
         console.warn(e);
       } finally {
@@ -37,13 +36,45 @@ export default function App() {
     prepare();
   }, []);
 
+  // function newUser() {
+  //   const newUser = createUser("female");
+  //   newUser.then((resp) => {
+  //     if (resp.status === 201) {
+  //       console.log(resp.data)
+  //     }
+  //     else {
+  //       console.log("Creating new user failed", resp.status, resp.data)
+  //     }
+  //   })
+  // }
+
+  // function fetchUsers() {
+  //   const allUsers = getUsers();
+  //   allUsers.then((resp) => {
+  //     if (resp.status === 200) {
+  //       console.log(resp.data)
+  //     }
+  //     else {
+  //       console.log("Fetching user failed", resp.status, resp.data)
+  //     }
+  //   })
+  // }
+
+  // function updateUser() {
+  //   const updatedUser = updateUserById("60a923581f21680015cd8e06", "Maša in Medved");
+  //   updatedUser.then((resp) => {
+  //     if (resp.status === 200) {
+  //       console.log(resp.data)
+  //     }
+  //     else {
+  //       console.log("Updating user failed", resp.status, resp.data)
+  //     }
+  //   })
+  // }
+
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
-      // This tells the splash screen to hide immediately! If we call this after
-      // `setAppIsReady`, then we may see a blank screen while the app is
-      // loading its initial state and rendering its first pixels. So instead,
-      // we hide the splash screen once we know the root view has already
-      // performed layout.
+      //Hide Splash
       await SplashScreen.hideAsync();
     }
   }, [appIsReady]);

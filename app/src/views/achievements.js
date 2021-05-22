@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function achievements() {
+export default function Achievements() {
     return (
         <div>
             
