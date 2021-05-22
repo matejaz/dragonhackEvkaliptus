@@ -22,4 +22,8 @@ Activities api endpoint:
 - activities (GET) (get the list of all activities)
 - activities (POST) (create an activity, required data in body: users (int), start (Date), stop (Date), activityId (String), userId (String)
 - activity/id (GET) (get an activity by id)
+
+Achievements api endpoint:
+- achievements (GET) (get the list of all achievements)
+- achievement/id (GET) (get an achievement by id)
 ```
