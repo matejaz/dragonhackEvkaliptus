@@ -4,11 +4,11 @@
     "slug": "app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/media/icon.png",
     "splash": {
-      "image": "./assets/Splash.png",
+      "image": "./assets/media/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#3D3D3D"
+      "backgroundColor": "#36393E"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,12 +21,15 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/media/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/media/favicon.png"
+    },
+    "packagerOpts": {
+      "config": "metro.config.js"
     }
   }
 }

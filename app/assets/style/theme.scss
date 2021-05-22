@@ -1,0 +1,12 @@
+@import "colors.scss";
+
+.text{
+    color: $defaultText;
+}
+
+.background{
+    flex: 1;
+    align-items: center;
+    justify-content: center; 
+    background-color: $backgroundColor
+}

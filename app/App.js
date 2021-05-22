@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
+import styles from "./assets/style/theme.scss"
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -46,9 +46,9 @@ export default function App() {
 
   return (
     <View
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+      style={styles.background}
       onLayout={onLayoutRootView}>
-      <Text>SplashScreen Demo! 👋</Text>
+      <Text style={styles.text}>Choose your mode</Text>
       <Entypo name="rocket" size={30} />
     </View>
   );
