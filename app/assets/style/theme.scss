@@ -11,6 +11,8 @@
 	background-color: $backgroundColor;
 }
 
+/* SoloHome */
+
 .flatlistContainer {
 	flex: 1;
 	padding-top: 40;
@@ -30,9 +32,9 @@
 }
 
 .flatListTitle {
-	font-size: 24;
-	font-weight: 700;
-	color: #ffffff;
+    font-size: 24;
+    font-weight: 700;
+    color: rgba($color: #ffffff, $alpha: 0.8)
 }
 
 .flatListDescription {
@@ -41,12 +43,49 @@
 	color: #ffffff;
 }
 
+/* Guide */
+.guideTitle {
+    color: rgba($color: #E67E22, $alpha: 1.0);
+    font-size: 32;
+    font-weight: 700;
+    margin-top: 60;
+    padding-bottom: 40;
+    padding-left: 10;
+    padding-right: 10;
+}
+
+.guideContent {
+    color: #ffffff;
+    font-size: 16;
+    padding-bottom: 40;
+    padding-left: 20;
+    padding-right: 20;
+} 
+
+.guideButton {
+    width: 80%;
+    margin-left: 30;
+    margin-right: 10;
+    padding: 10px;
+    background-color:rgba($color: #F1C40F, $alpha: 0.8) ;
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 25px;
+}
+
+.guideButtonText {
+    color: #ffffff;
+    font-weight: 700;
+
+}
+
 .doubleRightImage {
 	height: 25;
 	width: 25;
 	justify-content: center;
 }
 
+/* Something else, but i dunno what heh*/
 .fullscreen {
 	flex: 1;
 	color: $defaultText;
