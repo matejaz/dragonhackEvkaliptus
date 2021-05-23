@@ -6,6 +6,7 @@ const userInfo = null;
 const user = {
 
     setUserInfo(userInfo) {
+        console.log("User info saved")
         return user.userInfo = userInfo;
     },
 

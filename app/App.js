@@ -36,8 +36,12 @@ export default function App() {
 
         const id = await User.getId();
         setUserId(id)
-        if (userId !== "") {
-          fetchUserData()
+        if (id !== "") {
+          console.log("User ID found: ", id)
+          fetchUserData(id)
+        }
+        else {
+          console.log("No user ID found!")
         }
       } catch (e) {
         console.warn(e);
@@ -50,23 +54,26 @@ export default function App() {
     prepare();
   }, []);
 
-  function fetchUserData() {
+  function fetchUserData(id) {
 
-    const userInfoResponse = getUserById(userId);
+    const userInfoResponse = getUserById(id);
     userInfoResponse.then((resp) => {
       if (resp.status === 200) {
         console.log("User data received", resp.data);
         User.setUserInfo(resp.data);
       }
-      else {
-        console.log("Fetching user failed", resp.status, resp.data)
+      if (resp.status === 404) {
+        console.log("rip")
       }
+      // else {
+      //   console.log("Fetching user failed", resp.status, resp.data)
+      // }
     })
 
   }
 
   function soloButtonPressed(navigation) {
-    if (User.getId() === "") {
+    if (userId === "") {
       navigation.navigate('SexPick')
 
     }
