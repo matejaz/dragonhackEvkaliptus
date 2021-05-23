@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { View, Text, Button, Alert, Pressable } from 'react-native'
+import { View, Text, Button, Alert, Pressable, ScrollView } from 'react-native'
 import { getsoloActivityById } from '../../api/ApiHandler';
 import { useNavigation, route } from '@react-navigation/native';
 import styles from "../../../assets/style/theme.scss"
@@ -34,11 +34,13 @@ export default function Guide({ route }) {
 
     return (
         <View style={[styles.background, {alignItems: 'flex-start',  justifyContent: 'flex-start'}]}>
-            <Text style={styles.guideTitle}> { guide.title} </Text>
-            <Text style={styles.guideContent}> { guide.content } </Text>
-            <Pressable style={styles.guideButton} onPress={ () => navigation.navigate('HomeSolo')}>
-                <Text style={styles.guideButtonText}>FINITO!</Text>
-            </Pressable>
+            <ScrollView style={styles.scrollView}>
+                <Text style={styles.guideTitle}> { guide.title} </Text>
+                <Text style={styles.guideContent}> { guide.content } </Text>
+                <Pressable style={styles.guideButton} onPress={ () => navigation.navigate('HomeSolo')}>
+                    <Text style={styles.guideButtonText}>FINITO!</Text>
+                </Pressable>
+            </ScrollView>
         </View>
     )
 }
