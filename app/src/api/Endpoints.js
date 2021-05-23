@@ -6,4 +6,5 @@ export default {
     getRandomPose: "actDR",
     getSoloActivities: "actD",
     getSoloActivityById: "actD/",
+    getAchievements: "achievements",
 };

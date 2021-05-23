@@ -3,15 +3,16 @@ import React from 'react'
 import { Text, View, Button } from 'react-native';
 
 import styles from "../../../assets/style/theme.scss"
+import BigButton from '../../components/BigButton';
 
 export default function HomeCouple() {
     const navigation = useNavigation();
+
     return (
         <View style={styles.background}>
-            <Text style={styles.text}>Seeeerbus 2</Text>
-            <Button onPress={() => navigation.navigate("Action")} title="Start session" />
-            <Button title="Game ideas" />
-            <Button title="Useful guidelines" />
+            <BigButton navigate="Action" title="Start session" navigation={navigation} />
+            <BigButton navigate="GameIdeas" title="Game ideas" navigation={navigation} />
+            <BigButton navigate="Achievements" title="Achievements" navigation={navigation} />
         </View>
     )
 }

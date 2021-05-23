@@ -4,31 +4,31 @@
 	color: $defaultText;
 }
 
-.background{
-    flex: 1;
-    align-items: center;
-    justify-content: center; 
-    background-color: $backgroundColor
+.background {
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	background-color: $backgroundColor;
 }
 
 /* SoloHome */
 
 .flatlistContainer {
-    flex: 1;
-    padding-top: 40;
-    padding-top: 40;
-    justify-content: center; 
-    background-color: $backgroundColor
+	flex: 1;
+	padding-top: 40;
+	padding-top: 40;
+	justify-content: center;
+	background-color: $backgroundColor;
 }
 
-.flatlistItem  {
-    flex: 1;
-    margin-right: 20;
-    margin-left: 20;
-    margin-top: 24;
-    padding: 30px;
-    background-color:rgba($color: #ffffff, $alpha: 0.2);
-    border-radius: 25px;
+.flatlistItem {
+	flex: 1;
+	margin-right: 20;
+	margin-left: 20;
+	margin-top: 24;
+	padding: 30px;
+	background-color: rgba($color: #ffffff, $alpha: 0.2);
+	border-radius: 25px;
 }
 
 .flatListTitle {
@@ -38,9 +38,9 @@
 }
 
 .flatListDescription {
-    padding-top: 20;
-    font-size: 14;
-    color: #ffffff;
+	padding-top: 20;
+	font-size: 14;
+	color: #ffffff;
 }
 
 /* Guide */
@@ -80,10 +80,9 @@
 }
 
 .doubleRightImage {
-    height: 25;
-    width: 25;
-    justify-content: center; 
-
+	height: 25;
+	width: 25;
+	justify-content: center;
 }
 
 /* Something else, but i dunno what heh*/
@@ -102,4 +101,117 @@
 .separatorLine {
 	width: 4%;
 	align-items: center;
+}
+
+.title {
+	font-size: 30;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+}
+.description {
+	font-size: 16;
+	color: #a3a9b4;
+	font-style: italic;
+}
+.titleSection {
+	flex: 3;
+	margin-top: 30;
+	align-items: center;
+	justify-content: center;
+}
+.image {
+	flex: 5;
+	justify-content: center;
+	align-items: center;
+}
+
+.instructions {
+	flex: 1;
+	font-size: 16;
+	font-weight: 500;
+	color: #a3a9b4;
+	justify-content: flex-end;
+}
+
+.cardTitle {
+	font-size: 25;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+}
+
+.miniCardTitle {
+	font-size: 18;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+}
+
+.fadedTitle {
+	font-size: 22;
+	color: #a3a9b4;
+	margin-bottom: 1rem;
+	font-weight: 500;
+}
+
+// Achievements view
+.achievementsBackground {
+	flex: 1;
+	align-items: center;
+	padding-top: 15%;
+	background-color: $backgroundColor;
+}
+
+.achievementsTitle {
+	font-size: 18;
+	font-weight: 600;
+	color: $defaultText;
+}
+
+.achievementsText {
+	font-size: 17;
+	font-weight: 600;
+	color: grey;
+}
+
+.statsView {
+	justify-content: center;
+	align-items: center;
+	background-color: $backgroundColorDark;
+	width: 80%;
+	height: 20%;
+	border-radius: 25px;
+	margin-bottom: 20px;
+}
+
+.challengesView {
+	margin-top: 7px;
+	width: 100%;
+	height: 80%;
+	margin-left: 4%;
+}
+
+.challengeItem {
+	width: 96%;
+	height: 70px;
+	border-width: 3px;
+	border-color: $backgroundColorDark;
+	border-radius: 5px;
+	justify-content: center;
+	margin-bottom: 4px;
+}
+
+.challengeContent {
+	flex-direction: row;
+	align-items: center;
+}
+
+.challengeIcon {
+	width: 50px;
+	height: 50px;
+	background-color: gold;
+	border-radius: 40px;
+	margin-right: 4%;
+	margin-left: 2%;
 }

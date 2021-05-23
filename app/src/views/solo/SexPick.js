@@ -30,7 +30,7 @@ export default SexPick = () => {
 
     return (
         <View style={styles.background}>
-            <Text style={styles.text}>Select gender</Text>
+            <Text style={styles.fadedTitle}>Select gender</Text>
 
             <View style={styles.selectionView}>
 

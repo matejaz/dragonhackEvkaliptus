@@ -10,8 +10,8 @@ const user = {
         return user.userInfo = userInfo;
     },
 
-    getUserInfo(userInfo = USER_INFO) {
-        return user.get(userInfo);
+    getUserInfo() {
+        return user.userInfo;
     },
 
     async storeId(value) {

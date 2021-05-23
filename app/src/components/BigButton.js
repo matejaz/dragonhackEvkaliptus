@@ -1,10 +1,14 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react'
+import { Text, View, TouchableOpacity, Image, Button } from 'react-native';
+import buttonStyles from "../../assets/style/buttons.scss"
+import styles from "../../assets/style/theme.scss"
 
-export default function BigButton({ title, navigate }) {
+export default function BigButton({ title, navigate, navigation }) {
     return (
-        <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => navigation.navigate(navigate)}>
+        <TouchableOpacity style={buttonStyles.bigButton} activeOpacity={0.5} onPress={() => navigation.navigate(navigate)}>
             <View >
-                <Text>{title}</Text>
+                <Text style={styles.cardTitle}>{title}</Text>
             </View>
         </TouchableOpacity>
 

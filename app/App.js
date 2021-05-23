@@ -12,6 +12,7 @@ import User from "./utils/User.js"
 import SexPick from "./src/views/solo/SexPick.js";
 import HomeSolo from "./src/views/solo/HomeSolo.js";
 import HomeCouple from "./src/views/couple/HomeCouple.js";
+import GameIdeas from "./src/views/couple/GameIdeas";
 
 import Action from "./src/views/couple/Action";
 import EndAction from "./src/views/couple/EndAction";
@@ -96,8 +97,7 @@ export default function App() {
       <View
         style={styles.background}
         onLayout={onLayoutRootView}>
-        <Text style={styles.text}>Choose your mode</Text>
-        <Button title="Achievements" onPress={() => navigation.navigate('Achievements')} />
+        <Text style={styles.fadedTitle}>Choose your mode</Text>
         <View style={styles.selectionView}>
 
           <TouchableOpacity style={buttonStyles.imageButton} activeOpacity={0.5} onPress={() => soloButtonPressed(navigation)}>
@@ -139,6 +139,7 @@ export default function App() {
 
         {/* Couple */}
         <Stack.Screen name="HomeCouple" component={HomeCouple} />
+        <Stack.Screen name="GameIdeas" component={GameIdeas} />
 
 
 
