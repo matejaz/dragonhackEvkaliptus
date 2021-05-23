@@ -45,13 +45,13 @@
     "description": "cunt",
     "score_value": 10,
     "participants": 2,
-    "picture": "smth"
+    "picture": "/images/basket.png"
 },
 {   "title":  "Bridge",
     "description": "cunt",
     "score_value": 10,
     "participants": 2,
-    "picture": "smth"
+    "picture": "/images/bridge.png"
 },
 {   "title":  "Butterfly",
     "description": "cunt",
@@ -147,7 +147,7 @@
     "description": "cunt",
     "score_value": 10,
     "participants": 2,
-    "picture": "smth"
+    "picture": "/images/doggystyle.png"
 },
 {   "title":  "Dolphin",
     "description": "cunt",
@@ -189,7 +189,7 @@
     "description": "cunt",
     "score_value": 10,
     "participants": 2,
-    "picture": "smth"
+    "picture": "/images/frog.png"
 },
 {   "title":  "G-Force",
     "description": "cunt",
@@ -339,7 +339,7 @@
     "description": "cunt",
     "score_value": 10,
     "participants": 2,
-    "picture": "smth"
+    "picture": "/images/reversecowgirl.png"
 },
 {   "title":  "Right Angle",
     "description": "cunt",
@@ -513,7 +513,7 @@
     "description": "cunt",
     "score_value": 10,
     "participants": 2,
-    "picture": "smth"
+    "picture": "/images/whisper.png"
 },
 {   "title":  "Widely Open",
     "description": "cunt",
