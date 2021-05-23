@@ -85,10 +85,22 @@ function getsoloActivityById(id) {
     }
 }
 
+function getAchievements() {
+    console.log("Fetching all achievements . . .")
+    try {
+        const response = Axios.get(Endpoints.getAchievements, {});
+        return response;
+    } catch (err) {
+        console.log('An error occurred:', err);
+        return this.createError(err);
+    }
+}
+
 export {
     getUsers,
     createUser,
     getUserById,
     updateUserById,
-    getRandomPose
+    getRandomPose,
+    getAchievements
 }
