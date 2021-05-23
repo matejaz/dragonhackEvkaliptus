@@ -3,4 +3,5 @@ export default {
     createUser: "users",
     getUserById: "user/",
     updateUserById: "user/",
+    getRandomPose: "actDR"
 };

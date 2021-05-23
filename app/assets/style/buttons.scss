@@ -1,1 +1,10 @@
 @import "colors.scss";
+
+.imageButton {
+    width: 48%;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    background-color: $backgroundColor;
+    height: 80%;
+}

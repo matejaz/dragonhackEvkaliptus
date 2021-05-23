@@ -26,7 +26,7 @@ function createUser(sex) {
 }
 
 function getUserById(id) {
-    console.log("Fetching user by id . . .")
+    console.log("Fetching user by id: ", id)
     try {
         const response = Axios.get(Endpoints.getUserById + id, {
             id: id,
@@ -51,9 +51,20 @@ function updateUserById(id, name) {
     }
 }
 
+function getRandomPose() {
+    try {
+        const response = Axios.get(Endpoints.getRandomPose);
+        return response;
+    } catch (err) {
+        console.log('An error occurred:', err);
+        return this.createError(err);
+    }
+}
+
 export {
     getUsers,
     createUser,
     getUserById,
-    updateUserById
+    updateUserById,
+    getRandomPose
 }

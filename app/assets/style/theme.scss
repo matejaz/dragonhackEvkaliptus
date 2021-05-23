@@ -1,7 +1,7 @@
 @import "colors.scss";
 
-.text{
-    color: $defaultText;
+.text {
+	color: $defaultText;
 }
 
 .background{
@@ -46,4 +46,21 @@
     width: 25;
     justify-content: center; 
 
+}
+
+.fullscreen {
+	flex: 1;
+	color: $defaultText;
+	background-color: $backgroundColor;
+	font-size: 19;
+}
+
+.selectionView {
+	flex-direction: row;
+	align-items: center;
+}
+
+.separatorLine {
+	width: 4%;
+	align-items: center;
 }
