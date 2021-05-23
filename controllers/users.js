@@ -81,6 +81,9 @@ const userPutById = (req, res) => {
       if (req.body.score){
         user.score = req.body.score;
       }
+      if (req.body.endurance){
+        user.endurance = req.body.endurance;
+      }
       user.save((error, user) => {
         if (error) {
           res.status(404).json(error);
