@@ -13,6 +13,7 @@ User api endpoint:
 - users (POST) (create a user: raw json body, parameter sex - not checked for format yet, zaenkrat male/female, sam je za spremenit)
 - user/id (GET) (get user by id)
 - user/id (PUT) (update user, you can update name, sex, score)
+- user/id (POST) (adds an achievement to a user with id: parameter - achievementId)
 
 ActivityDetails api endpoint:
 - actD (GET) (get the list of all activities)

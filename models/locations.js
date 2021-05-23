@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
   name: {type: String, "default": "user", required: true},
   score: {type: Number, "default": 0, required: true},
   sex: {type: String},
+  endurance: {type: Number, "default": 0},
   activities: [activitySchema],
   achievements: [achievementSchema]
 });
