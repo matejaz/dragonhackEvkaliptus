@@ -32,13 +32,18 @@ const activityDetailsGetById = (req, res) => {
 
 const activityDetailsGetRandom = async (req, res) => {
   let randomPosition=await kamasutraPositions.random();
-  ActivityDetails.find({"title": randomPosition}).exec((error, activityDetails) => {
+  ActivityDetails.find({"title": randomPosition}).exec(async (error, activityDetails) => {
     if(!activityDetails || activityDetails.length == 0){
       return res.status(404).json({"message": "OOPSIE WOOPSIE!! Uwu we made a fucky wucky..."});
     }
     else if(error){
       return res.status(500).json(error);
     }
+    if (activityDetails[0].picture==='smth'){
+      await activityDetailsGetRandom(req, res);
+      return;
+    }
+    console.log('nnno')
     res.status(200).json(activityDetails);
   });
 };
