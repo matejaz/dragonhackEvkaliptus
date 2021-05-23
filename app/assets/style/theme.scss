@@ -4,48 +4,47 @@
 	color: $defaultText;
 }
 
-.background{
-    flex: 1;
-    align-items: center;
-    justify-content: center; 
-    background-color: $backgroundColor
+.background {
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	background-color: $backgroundColor;
 }
 
 .flatlistContainer {
-    flex: 1;
-    padding-top: 40;
-    padding-top: 40;
-    justify-content: center; 
-    background-color: $backgroundColor
+	flex: 1;
+	padding-top: 40;
+	padding-top: 40;
+	justify-content: center;
+	background-color: $backgroundColor;
 }
 
-.flatlistItem  {
-    flex: 1;
-    margin-right: 20;
-    margin-left: 20;
-    margin-top: 24;
-    padding: 30px;
-    background-color:rgba($color: #ffffff, $alpha: 0.2);
-    border-radius: 25px;
+.flatlistItem {
+	flex: 1;
+	margin-right: 20;
+	margin-left: 20;
+	margin-top: 24;
+	padding: 30px;
+	background-color: rgba($color: #ffffff, $alpha: 0.2);
+	border-radius: 25px;
 }
 
 .flatListTitle {
-    font-size: 24;
-    font-weight: 700;
-    color: #ffffff;
+	font-size: 24;
+	font-weight: 700;
+	color: #ffffff;
 }
 
 .flatListDescription {
-    padding-top: 20;
-    font-size: 14;
-    color: #ffffff;
+	padding-top: 20;
+	font-size: 14;
+	color: #ffffff;
 }
 
 .doubleRightImage {
-    height: 25;
-    width: 25;
-    justify-content: center; 
-
+	height: 25;
+	width: 25;
+	justify-content: center;
 }
 
 .fullscreen {
@@ -94,4 +93,18 @@
 	font-weight: 500;
 	color: #a3a9b4;
 	justify-content: flex-end;
+}
+
+.cardTitle {
+	font-size: 25;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+}
+
+.fadedTitle {
+	font-size: 22;
+	color: #a3a9b4;
+	margin-bottom: 1rem;
+	font-weight: 500;
 }
