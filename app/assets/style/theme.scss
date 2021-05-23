@@ -64,3 +64,34 @@
 	width: 4%;
 	align-items: center;
 }
+
+.title {
+	font-size: 30;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+}
+.description {
+	font-size: 16;
+	color: #a3a9b4;
+	font-style: italic;
+}
+.titleSection {
+	flex: 3;
+	margin-top: 30;
+	align-items: center;
+	justify-content: center;
+}
+.image {
+	flex: 4;
+	justify-content: center;
+	align-items: center;
+}
+
+.instructions {
+	flex: 1;
+	font-size: 16;
+	font-weight: 500;
+	color: #a3a9b4;
+	justify-content: flex-end;
+}
