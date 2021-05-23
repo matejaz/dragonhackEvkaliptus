@@ -3,5 +3,7 @@ export default {
     createUser: "users",
     getUserById: "user/",
     updateUserById: "user/",
-    getRandomPose: "actDR"
+    getRandomPose: "actDR",
+    getSoloActivities: "soloA",
+    getSoloActivityById: "solo",
 };

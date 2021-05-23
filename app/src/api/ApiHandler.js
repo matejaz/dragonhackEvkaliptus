@@ -61,6 +61,30 @@ function getRandomPose() {
     }
 }
 
+function getSoloActivities() {
+    console.log("Fetching all solo activities . . .")
+    try {
+        const response = Axios.get(Endpoints.getSoloActivities, {});
+        return response;
+    } catch (err) {
+        console.log('An error occurred:', err);
+        return this.createError(err);
+    }
+}
+
+function getsoloActivityById(id) {
+    console.log("Fetching solo activity by id: ", id)
+    try {
+        const response = Axios.get(Endpoints.getSoloActivityById + id, {
+            id: id,
+        });
+        return response;
+    } catch (err) {
+        console.log('An error occurred:', err);
+        return this.createError(err);
+    }
+}
+
 export {
     getUsers,
     createUser,
