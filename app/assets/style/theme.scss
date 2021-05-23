@@ -12,6 +12,22 @@
 }
 
 /* SoloHome */
+.bigButtonsBackground {
+	flex: 1;
+	padding-top: 5%;
+	align-items: center;
+	justify-content: center;
+	background-color: $backgroundColor;
+}
+
+.timer {
+	text-align: center;
+	flex: 1;
+	font-size: 38;
+	font-weight: 700;
+	color: #a3a9b4;
+	justify-content: flex-end;
+}
 
 .flatlistContainer {
 	flex: 1;
@@ -32,9 +48,9 @@
 }
 
 .flatListTitle {
-    font-size: 24;
-    font-weight: 700;
-    color: rgba($color: #ffffff, $alpha: 0.8)
+	font-size: 24;
+	font-weight: 700;
+	color: rgba($color: #ffffff, $alpha: 0.8);
 }
 
 .flatListDescription {
@@ -56,12 +72,12 @@
 }
 
 .guideContent {
-    color: #ffffff;
-    font-size: 16;
-    padding-bottom: 40;
-    padding-left: 20;
-    padding-right: 20;
-} 
+	color: #ffffff;
+	font-size: 16;
+	padding-bottom: 40;
+	padding-left: 20;
+	padding-right: 20;
+}
 
 .guideButton {
     width: 80%;
@@ -76,9 +92,8 @@
 }
 
 .guideButtonText {
-    color: #ffffff;
-    font-weight: 700;
-
+	color: #ffffff;
+	font-weight: 700;
 }
 
 .doubleRightImage {
@@ -111,11 +126,16 @@
 	font-weight: 700;
 	text-align: center;
 }
+
 .description {
-	font-size: 16;
+	font-size: 14;
 	color: #a3a9b4;
 	font-style: italic;
+	text-align: center;
+	margin-left: 5px;
+	margin-right: 5px;
 }
+
 .titleSection {
 	flex: 3;
 	margin-top: 30;
@@ -129,6 +149,7 @@
 }
 
 .instructions {
+	text-align: center;
 	flex: 1;
 	font-size: 16;
 	font-weight: 500;
@@ -216,4 +237,16 @@
 	border-radius: 40px;
 	margin-right: 4%;
 	margin-left: 2%;
+}
+
+.endActionText {
+	font-size: 17;
+	font-weight: 600;
+	color: grey;
+}
+.endActionScore {
+	font-size: 38;
+	font-weight: 700;
+	color: #a3a9b4;
+	margin-bottom: 15%;
 }

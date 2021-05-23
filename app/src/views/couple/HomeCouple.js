@@ -9,7 +9,7 @@ export default function HomeCouple() {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.background}>
+        <View style={styles.bigButtonsBackground}>
             <BigButton navigate="Action" title="Start session" navigation={navigation} />
             <BigButton navigate="GameIdeas" title="Game ideas" navigation={navigation} />
             <BigButton navigate="Achievements" title="Achievements" navigation={navigation} />

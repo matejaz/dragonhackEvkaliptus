@@ -7,4 +7,5 @@ export default {
     getSoloActivities: "actD",
     getSoloActivityById: "actD/",
     getAchievements: "achievements",
+    postActivity: "activities",
 };
