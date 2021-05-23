@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Achievement from "../components/Achievement"
-import { Button, Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, Image } from 'react-native';
 import { getAchievements } from "../api/ApiHandler.js";
 import User from "../../utils/User.js";
 
 import styles from "../../assets/style/theme.scss"
+import oneHandedImage from "../../assets/media/SkillOnehanded.png"
 
 export default function Achievements() {
     const [achievements, setAchievements] = useState([])
@@ -29,15 +30,6 @@ export default function Achievements() {
         })
     }, []);
 
-    // getScore(){
-    //     if (User.getUserInfo().score !== null) {
-    //         return User.getUserInfo().score;
-    //     }
-    //     else {
-    //         return 0
-    //     }
-    // }
-
     return (
         <View style={styles.achievementsBackground}>
             {/* <Button title="Back"></Button> */}
@@ -49,14 +41,20 @@ export default function Achievements() {
             </View>
             <Text style={styles.achievementsTitle}>Challenges</Text>
             <View style={styles.challengesView}>
-                {/* <FlatList keyExtractor={(item) => item.id} data={achievements} renderItem={({ item }) => (
+                <FlatList keyExtractor={(item, index) => { return item.id; }} data={achievements} renderItem={({ item }) => (
 
-                    <View key= {item.id} >
-                        <Text style={styles.flatListTitle}>
-                            {item.title}
-                        </Text>
+                    <View style={styles.challengeItem} key={item.key}>
+                        <View style={styles.challengeContent}>
+                            <Image style={styles.challengeIcon}
+                                source={oneHandedImage}
+                            />
+                            <Text style={styles.achievementsText}>
+                                {item.title}
+                            </Text>
+                        </View>
+
                     </View>
-                )} /> */}
+                )} />
             </View>
         </View>
     )
