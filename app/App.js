@@ -21,6 +21,7 @@ import buttonStyles from "./assets/style/buttons.scss"
 import soloLine from "./assets/media/soloLine.png"
 import coupleLine from "./assets/media/coupleLine.png"
 import line from "./assets/media/line.png"
+import Guide from './src/views/solo/Guide.js';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -134,6 +135,7 @@ export default function App() {
         {/* Solo */}
         <Stack.Screen name="SexPick" component={SexPick} />
         <Stack.Screen name="HomeSolo" component={HomeSolo} />
+        <Stack.Screen name="Guide" component={Guide} />
 
         {/* Couple */}
         <Stack.Screen name="HomeCouple" component={HomeCouple} />

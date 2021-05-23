@@ -4,6 +4,6 @@ export default {
     getUserById: "user/",
     updateUserById: "user/",
     getRandomPose: "actDR",
-    getSoloActivities: "soloA",
-    getSoloActivityById: "solo",
+    getSoloActivities: "actD",
+    getSoloActivityById: "actD/",
 };

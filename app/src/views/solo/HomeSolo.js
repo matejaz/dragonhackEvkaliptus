@@ -1,45 +1,42 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Text, View, FlatList, Button, Alert, TouchableOpacity, Image } from 'react-native';
 import styles from "../../../assets/style/theme.scss"
+import { getSoloActivities } from "../../api/ApiHandler"
+import { useNavigation } from '@react-navigation/native';
+import User from "../../../utils/User.js"
+
 
 export default function HomeSolo() {
+    const navigation = useNavigation();
+    
+    const [soloItems, setSoloItem] = useState([]);
 
-    const [soloItems, setsoloItem] = useState([
-        {
-            id: "1",
-            title: "Tantra Mastrubation",
-            description: "Solo tantra is the first step in having a partnered, tantric experience."
-        },
-        {
-            id: "2",
-            title: "Master Your Orgasm",
-            description: "Because, who needs anyone else when you can give yourself the best orgasms."
+    useEffect(() => {
+        //User.clearData();
+        //fetch all solo activities
+        receiveSoloActivities();
+    }, [])
 
-        },
-        {
-            id: "3",
-            title: "Better Sleep",
-            description: "Let go of the stress and the thoughts that keep you awake throughday."
-        },{
-            id: "4",
-            title: "Better Sleep",
-            description: "Let go of the stress and the thoughts that keep you awake throughday."
-        },
-    ]);
-
-    const pressHandler = (id) => {
-        console.log(id);
-        setsoloItem((prevSoloItem) => {
-            return prevSoloItem.filter(soloItem => soloItem.id != id);
+    const receiveSoloActivities = () => {
+        const soloActivities = getSoloActivities();
+        soloActivities.then((resp) => {
+            if (resp.status === 200) {
+                console.log("Solo activities:\n" + resp.data[0].title);
+                setSoloItem(resp.data);
+            }
+            else {
+                console.log("Can't get solo activities.", resp.status, resp.data)
+            }
         });
-    };
+    }
 
     return (
 
         <View style={styles.flatlistContainer}>
 
             <FlatList
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item._id}
                 data={soloItems}
                 renderItem={({ item }) => (
                     
@@ -47,11 +44,11 @@ export default function HomeSolo() {
                         <Text style={styles.flatListTitle}>
                             {item.title}
                         </Text>
-                        <View style={{flexDirection: 'row',  justifyContent: 'space-between', justifyContent: 'center', alignItems: 'flex-end' }}>
+                        <View style={{flexDirection: 'row',  justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <Text style={styles.flatListDescription}>
                                 {item.description}
                             </Text>
-                            <TouchableOpacity onPress={()=> Alert.alert('Right button pressed')}>
+                            <TouchableOpacity onPress={()=> navigation.navigate('Guide', {itemId: item._id})}>
                                 <Image style={styles.doubleRightImage} source={require('../../../assets/media/double-right.png')} />
                             </TouchableOpacity>
                         </View>

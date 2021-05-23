@@ -28,9 +28,7 @@ function createUser(sex) {
 function getUserById(id) {
     console.log("Fetching user by id: ", id)
     try {
-        const response = Axios.get(Endpoints.getUserById + id, {
-            id: id,
-        });
+        const response = Axios.get(Endpoints.getUserById + id);
         return response;
     } catch (err) {
         console.log('An error occurred:', err);
@@ -64,7 +62,7 @@ function getRandomPose() {
 function getSoloActivities() {
     console.log("Fetching all solo activities . . .")
     try {
-        const response = Axios.get(Endpoints.getSoloActivities, {});
+        const response = Axios.post(Endpoints.getSoloActivities, {'participants':'1'});
         return response;
     } catch (err) {
         console.log('An error occurred:', err);
@@ -75,9 +73,7 @@ function getSoloActivities() {
 function getsoloActivityById(id) {
     console.log("Fetching solo activity by id: ", id)
     try {
-        const response = Axios.get(Endpoints.getSoloActivityById + id, {
-            id: id,
-        });
+        const response = Axios.get(Endpoints.getSoloActivityById + id);
         return response;
     } catch (err) {
         console.log('An error occurred:', err);
@@ -90,5 +86,7 @@ export {
     createUser,
     getUserById,
     updateUserById,
-    getRandomPose
+    getRandomPose,
+    getSoloActivities,
+    getsoloActivityById
 }
