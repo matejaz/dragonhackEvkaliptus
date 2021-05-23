@@ -49,6 +49,20 @@ function updateUserById(id, name) {
     }
 }
 
+function updateUserScoresById(id, enduranceScore, totalScore) {
+    console.log("Updating user score by id: ", id)
+    try {
+        const response = Axios.put(Endpoints.updateUserById + id, {
+            score: totalScore,
+            endurance: enduranceScore,
+        });
+        return response;
+    } catch (err) {
+        console.log('An error occurred:', err);
+        return this.createError(err);
+    }
+}
+
 function getRandomPose() {
     try {
         const response = Axios.get(Endpoints.getRandomPose);
@@ -62,7 +76,7 @@ function getRandomPose() {
 function getSoloActivities() {
     console.log("Fetching all solo activities . . .")
     try {
-        const response = Axios.post(Endpoints.getSoloActivities, {'participants':'1'});
+        const response = Axios.post(Endpoints.getSoloActivities, { 'participants': '1' });
         return response;
     } catch (err) {
         console.log('An error occurred:', err);
@@ -92,6 +106,23 @@ function getAchievements() {
     }
 }
 
+function postActivity(start, stop, activityId, userId) {
+    console.log("Posting activity . . .")
+    try {
+        const response = Axios.post(Endpoints.postActivity, {
+            users: 2,
+            start: start,
+            stop: stop,
+            activityId: activityId,
+            userId: userId,
+        });
+        return response;
+    } catch (err) {
+        console.log('An error occurred:', err);
+        return this.createError(err);
+    }
+}
+
 export {
     getUsers,
     createUser,
@@ -100,5 +131,7 @@ export {
     getRandomPose,
     getSoloActivities,
     getsoloActivityById,
-    getAchievements
+    getAchievements,
+    updateUserScoresById,
+    postActivity
 }

@@ -36,8 +36,8 @@ export default function Achievements() {
             <View style={styles.statsView} >
                 <Text style={styles.achievementsTitle}>Achievements</Text>
                 <Text style={styles.achievementsText}>High Score: {User.getUserInfo().score}</Text>
-                <Text style={styles.achievementsText}>Longest time: {User.getUserInfo().score}</Text>
-                <Text style={styles.achievementsText}>Streak: {User.getUserInfo().score}</Text>
+                <Text style={styles.achievementsText}>Endurance score: {User.getUserInfo().endurance}</Text>
+                {/* <Text style={styles.achievementsText}>Streak: {User.getUserInfo().score}</Text> */}
             </View>
             <Text style={styles.achievementsTitle}>Challenges</Text>
             <View style={styles.challengesView}>

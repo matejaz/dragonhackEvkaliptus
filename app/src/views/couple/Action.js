@@ -8,12 +8,19 @@ import { useNavigation, useRoute, useFocusEffect, useNavigationState } from '@re
 
 export default function Action() {
     const navigation = useNavigation();
-
+    var timer = 0;
+    var [duration, setDuration] = useState(0)
     const [position, setPosition] = useState([{ title: "" }])
     const [swipe, setSwipe] = useState("No swipe")
+
     useEffect(() => {
         // fetch first random position
         receiveRandomPose();
+
+        setInterval(() => {
+            setDuration(duration++)
+        }, 1000);
+
     }, [])
 
     const receiveRandomPose = () => {
@@ -31,13 +38,14 @@ export default function Action() {
 
     const onSwipeLeft = (state) => {
         setSwipe("U swiped left");
-        navigation.navigate("EndAction");
+        navigation.navigate("EndAction", { enduranceScore: duration });
     }
 
     const config = {
         velocityThreshold: 0.3,
         directionalOffsetThreshold: 80
     };
+
     return (
         <GestureRecognizer onSwipeLeft={(state) => onSwipeLeft()} config={config} style={styles.background} onTouchEnd={(state) => { receiveRandomPose(state) }}>
 
@@ -52,6 +60,8 @@ export default function Action() {
                         <Image style={ImageStyle.image} source={{ uri: `https://dhevkaliptus.herokuapp.com${position.picture}`, }} />
                     }
                 </View>
+                <Text style={styles.timer}>{duration}</Text>
+                <Text style={styles.instructions}>Endurance Score</Text>
                 <Text style={styles.instructions}>Tap to change position, slide left to finish.</Text>
             </View>
         </GestureRecognizer>

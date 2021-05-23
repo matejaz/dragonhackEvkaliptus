@@ -25,7 +25,7 @@ export default function GameIdeas() {
                 renderItem={({ item }) => (
 
                     <View style={styles.flatlistItem}>
-                        <TouchableOpacity onPress={() => Alert.alert('Right button pressed')}>
+                        <TouchableOpacity>
                             <Text style={styles.flatListTitle}>
                                 {item.title}
                             </Text>
