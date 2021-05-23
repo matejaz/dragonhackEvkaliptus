@@ -6,7 +6,7 @@ const activityDetailsSchema = new mongoose.Schema({
   score_value: {type: Number, required: true},
   participants: {type: Number, required: true},
   picture: {type: String},
-  content: {type: String, required: true}
+  content: {type: String}
 });
 
 const activitySchema = new mongoose.Schema({
